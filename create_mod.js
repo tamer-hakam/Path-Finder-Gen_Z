@@ -200,7 +200,6 @@ const productV = {
 
 function renderMod(product) {
   // Retrieve templates for the main layout
-
   const modTemp = document
     .querySelector(`[data-type="modal-elements-temp"]`)
     .content.cloneNode(true);
@@ -225,26 +224,31 @@ function renderMod(product) {
   renderModSection(product, modBody, modTemp);
   createModFooter(product.details, modTemp, modCard);
 
-  // Append the populated clone to the fragment
-  // template.appendChild(modPrime);
-
-  // template.classList.add('is-active')
+  // Append the populated modal to the fragment
   fragment.appendChild(modal);
+  modal.classList.add("is-active");
 
   // Append the fragment to the body in one operation to minimize reflows
   document.body.appendChild(fragment);
+
+  // Select the modal and the exit button
   const mod = document.querySelector(`[product="mod_${product.id}"]`);
   const exit = mod.querySelector(`[data-id="exit"]`);
+
   // Set up event listeners after the content is appended to the DOM
   addClickListenerToExit(exit, mod);
 }
+
 function addClickListenerToExit(element, mod) {
-  // Add click event listener to the exit btn
-  element.addEventListener("click", function (event) {
+  // Attach a click event listener to the exit button
+  element.addEventListener("click", function () {
     exitMod(mod);
   });
 }
+
 function exitMod(mod) {
   mod.classList.remove("is-active");
+  document.body.removeChild(mod); // Optionally remove the modal after closing
 }
+
 // Placeholder function as mentioned in the prompt
