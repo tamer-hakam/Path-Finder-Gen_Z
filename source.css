@@ -1,0 +1,944 @@
+.zoom {
+  position: relative;
+}
+
+.zoom-icon {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-image: url("media_assets/stand/zoom.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  cursor: pointer;
+}
+
+/* * modal test /////////////////// */
+.desk_mod {
+  min-width: 96%;
+  max-height: calc(100vh - 20px);
+}
+
+.modpix {
+  max-width: 60%;
+}
+
+.modpixx {
+  max-width: 70%;
+}
+
+.modpixxx {
+  max-width: 64%;
+}
+/* * modal test /////////////////// */
+/* ? layout order ////////////////// */
+.view-mob .A1 {
+  order: 1;
+}
+.view-mob .A2 {
+  order: 2;
+}
+.view-mob .A3 {
+  order: 5;
+}
+.view-mob .B1 {
+  order: 4;
+}
+.view-mob .B2 {
+  order: 6;
+}
+.view-mob .B3 {
+  order: 8;
+}
+.view-mob .B4 {
+  order: 9;
+}
+.view-mob .C1 {
+  order: 3;
+}
+.view-mob .C2 {
+  order: 7;
+}
+.view-mob .C3 {
+  order: 10;
+}
+.view-mob .xx1 {
+  order: 3;
+}
+.view-mob .xx2 {
+  order: 1;
+}
+.view-mob .xx3 {
+  order: 2;
+}
+/* ? layout order ////////////////// */
+
+/* 
+/* ! ///////////////////////////////// prim Start ///////////////////////////// */
+
+.small_imgs {
+  max-width: 78%;
+}
+
+.coloImgs {
+  max-height: 100px;
+}
+
+.A_img_mobile {
+  max-width: 76%;
+}
+
+/* ! ///////////////////////////////// prim End ///////////////////////////// */
+
+.bord {
+  border: 2px solid red;
+}
+
+.Desktop .xx1 {
+  order: 1;
+}
+
+.Desktop .xx2 {
+  order: 2;
+}
+
+.Desktop .xx3 {
+  order: 3;
+}
+
+.tablet .xx1 {
+  order: 1;
+}
+
+.tablet .xx2 {
+  order: 2;
+}
+
+.tablet .xx3 {
+  order: 3;
+}
+
+.colorIconC {
+  background-color: aquamarine;
+  border: 0;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  margin: 0 15px;
+}
+
+.Desk_Tab {
+}
+
+.Mobile {
+}
+.All {
+}
+
+.DeskTop {
+}
+
+.Mobile_Tap {
+}
+
+.Tablet {
+}
+
+/* * img mod ////////////// */
+.carousel_Img_Dske {
+  position: relative;
+  width: 76%;
+}
+.and_overf-hiddn {
+  overflow: hidden !important;
+}
+/* * img mod ////////////// */
+/* ! //////////////////cart/////////////// */
+/* ! //////////////////cart/////////////// */
+
+.card-style_cart {
+  box-shadow: 0 0.3rem 0.6rem hsl(0 0% 0% / 20%);
+  background: hsl(0 0% 100%);
+  color: hsl(200 50% 20%);
+  border-radius: 0.3ch;
+  border: 1px solid hsl(0 0% 83%);
+  height: max-content !important;
+}
+
+.card-style_cartTd {
+  box-shadow: 0 0.1rem 0.3rem hsl(0 0% 0% / 20%);
+  background: hsl(0, 0%, 96%);
+  color: hsl(200 50% 20%);
+  /* border-radius: 0.3ch;
+    border: 1px solid hsl(0 0% 83%); */
+  height: 100% !important;
+}
+
+.thead_Columns {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+}
+.card-style_cartTdH {
+  box-shadow: 0 0.1rem 0.3rem hsl(0 0% 0% / 20%);
+  background: hsl(0, 0%, 98%);
+  color: hsl(200 50% 20%);
+  border-radius: 0.1ch;
+  border: 1px solid hsl(0 0% 90%);
+}
+
+.cart_img_hid {
+  max-width: 10%;
+  min-height: 100% !important;
+}
+.cart_img {
+  max-width: 90%;
+}
+
+.cart_img_desk {
+  max-width: 40%;
+}
+
+.cart_Table_backColrA {
+  background-color: #ccc;
+}
+
+.zzz {
+  position: relative;
+  z-index: -1;
+}
+
+.zz {
+  z-index: 29;
+}
+
+.crtImgicn {
+  position: absolute;
+}
+
+.cart_img_befo::before {
+  /* content: ''; */
+
+  background-color: aqua;
+  display: block;
+}
+/* .tableB  *{
+    border: 1px solid red;
+} */
+
+.card-bodyflow {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.Mod_Card_Box {
+  min-height: 100vh !important;
+  min-width: 88% !important;
+  overflow: hidden;
+}
+
+/* cart animi */
+/* cart animi */
+
+/* cart animi */
+.card_Animi {
+  position: relative;
+  opacity: 0;
+  animation: 0.3s ease 0s slide-and-fade-in;
+  animation-fill-mode: forwards;
+}
+
+.card_Animi.delay-1 {
+  animation-delay: 0s;
+}
+
+.card_Animi.delay-2 {
+  animation-delay: 0.1s;
+}
+
+.card_Animi.delay-3 {
+  animation-delay: 0.2s;
+}
+
+@keyframes slide-and-fade-in {
+  0% {
+    top: 100px;
+    opacity: 0;
+  }
+  100% {
+    top: 0px;
+    opacity: 1;
+  }
+}
+/* cart animi */
+
+/* cart animi */
+/* cart animi */
+/* ! //////////////////cart/////////////// */
+/* ! //////////////////cart/////////////// */
+/* * ///////////////////Delet -conf ///////////////////////// */
+/* * ///////////////////Delet -conf ///////////////////////// */
+.delet_img {
+  max-width: 60%;
+}
+
+/* * ///////////////////Delet -conf ///////////////////////// */
+/* * ///////////////////Delet -conf ///////////////////////// */
+
+/* ? ///////////////////Desk - mod B //////////////////// */
+/* ? ///////////////////Desk - mod B //////////////////// */
+.modl_card_deskTop {
+  min-width: 96% !important;
+  max-height: calc(100vh - 10px) !important;
+}
+.modl_card_img_big_deskTop {
+  max-width: 65%;
+}
+
+.modl_card_img_big_deskTopB {
+  max-width: 45%;
+}
+
+/* ? ///////////////////Desk - mod B //////////////////// */
+/* ? ///////////////////Desk - mod B //////////////////// */
+
+/* ! ///////////////////////////////// prim_Desk Top -Start ///////////////////////////// */
+/* ! ///////////////////////////////// prim_Desk Top -Start ///////////////////////////// */
+/* ! ///////////////////////////////// prim_Desk Top -Start ///////////////////////////// */
+
+.carousel_Dske {
+  position: relative;
+  width: 86%;
+}
+
+.slider-btn_Dske {
+  position: absolute !important;
+  top: 55%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.slides-ul_Dske {
+  position: relative;
+}
+
+.holder_Dske {
+  position: relative;
+  z-index: -1;
+}
+
+.slide-desk {
+  position: absolute;
+  padding: 0 !important;
+  margin: 0 !important;
+  top: 0;
+  width: 70%;
+  height: 100%;
+}
+
+.svg-btn_Dske {
+  width: 40px;
+}
+
+.right-btn_Dske {
+  right: -45px;
+  z-index: 50;
+}
+
+.left-btn_Dske {
+  left: -40px;
+  z-index: 50;
+}
+
+.frist-img_Dske {
+  position: relative;
+  padding: 0 !important;
+  margin: 0 !important;
+  top: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.Img-Div_Dske {
+  position: absolute;
+  padding: 0 !important;
+  margin: 0 !important;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.Mod-Img-small_Dske {
+  max-height: 100px;
+}
+
+.Modl_Card_prim_deskTop {
+  width: 96% !important;
+}
+
+.body_img_Dske {
+  max-width: 60%;
+  margin: 0 auto !important;
+}
+
+.Main_img_Desk-Tatp {
+  max-width: 80%;
+  margin: 0 auto !important;
+}
+
+.small_img_Desk-Tatp {
+  max-width: 86%;
+}
+
+/* ! ///////////////////////////////// prim_Desk Top -End ///////////////////////////// */
+/* ! ///////////////////////////////// prim_Desk Top -End ///////////////////////////// */
+/* ! ///////////////////////////////// prim_Desk Top -End ///////////////////////////// */
+
+/* ^ ////////////////////////////////Mobile Mod /////////////////////////// */
+/* ^ ////////////////////////////////Mobile Mod /////////////////////////// */
+
+/* * //////////////////////////////type A mobile option//////////////////// */
+
+.testH {
+  display: none;
+}
+
+.divi {
+  max-width: 70%;
+  margin: 0 auto;
+}
+.img_mod_mobile {
+  margin: 0 auto;
+  width: 50% !important;
+}
+
+.Small_MOd_Img {
+  box-shadow: 4px 4px 2px lightblue;
+  max-width: 30%;
+}
+
+.Mod_Card_h {
+  min-height: 100vh !important;
+}
+
+.Mod_Back {
+  background-color: #fff;
+}
+
+.testH {
+  display: none;
+}
+
+.testF {
+  display: none;
+  max-height: 0 !important;
+  /* font-size: xx-small; */
+}
+
+.testB {
+  /* max-height: 200px; 
+    overflow: hidden;
+    overflow-y: auto; */
+  position: relative;
+  z-index: 2;
+}
+
+.upper {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 3;
+}
+
+.Modl_Card_deskTop {
+  width: 96% !important;
+  /* max-height: 100vh; */
+}
+
+.tableB th:not([align]) {
+  text-align: center !important;
+}
+
+.white {
+  color: white;
+}
+
+.img_mod_Desk {
+  margin: 0 auto;
+  max-width: 50% !important;
+}
+
+.img_mod_Tablet {
+  margin: 0 auto;
+  max-width: 70% !important;
+}
+
+.Tablecontan {
+  min-width: 80%;
+}
+
+/* .tableB  *{
+    border: 1px solid red;
+} */
+
+/* * ////////////////////////////////////////////////////////////////////// */
+
+/* !   //////////////////////////// A - Mobile - Mod ////////////////////// */
+.slider-btn {
+  position: absolute !important;
+  top: 45%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.svg-btn {
+  width: 34px;
+}
+
+.right-btn {
+  right: -5px;
+  z-index: 50;
+}
+
+.left-btn {
+  left: -5px;
+  z-index: 50;
+}
+
+.slides-ul {
+  position: relative;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+}
+
+.Img-Div {
+  position: absolute;
+  padding: 0 !important;
+  margin: 0 !important;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.holder {
+  position: relative;
+  z-index: -1;
+}
+
+.Mod-Img-small {
+  max-height: 80px;
+}
+
+.carousel {
+  position: relative;
+}
+
+.frist-img {
+  position: relative;
+  padding: 0 !important;
+  margin: 0 !important;
+  top: 0;
+  height: 100%;
+  width: 100%;
+}
+
+/* ^ accordion-mod */
+/* ^ accordion-mod */
+/* ^ accordion-mod */
+.accordion_wrap .accordion-mod {
+  box-sizing: border-box;
+}
+
+.accordion_wrap .modal-card-height {
+  height: 100%;
+}
+
+.accordion_wrap .accordion li {
+  list-style: none;
+  width: 100%;
+  border-radius: 8px;
+}
+
+.accordion_wrap .accordion li label {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.accordion_wrap label::before {
+  content: "+";
+  margin-left: 0.25rem;
+}
+
+.accordion_wrap input[type="checkbox"] {
+  display: none;
+}
+
+.accordion_wrap label {
+  display: block;
+  padding: 0.5rem;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  font-size: larger;
+  animation-duration: 10ms;
+}
+
+.accordion_wrap input[type="checkbox"]:checked + label {
+  background-color: #f0f0f0;
+}
+
+.accordion_wrap label::before {
+  content: "+";
+  margin-right: 0.5rem;
+}
+
+.accordion_wrap input[type="checkbox"]:checked + label::before {
+  content: "-";
+}
+
+.accordion_wrap label + .content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 3.3s ease;
+  padding: 0 0.25rem;
+}
+
+.accordion_wrap input[type="checkbox"]:checked + label + .content {
+  max-height: max-content;
+  padding: 0.25rem;
+}
+
+.accordion_wrap input[type="checkbox"]:checked + label::before {
+  content: "-";
+}
+
+.accordion_wrap input[type="checkbox"]:checked + label {
+  background-color: #f0f0f0;
+}
+
+.accordion_wrap .accordion .content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s;
+}
+
+.accordion_wrap input[type="checkbox"]:checked + label + .content {
+  max-height: max-content;
+  padding: 0.25rem;
+}
+
+.accordion_wrap input[type="radio"]:checked + label + .content {
+  max-height: max-content;
+  padding: 0.25rem;
+}
+
+.accordion_wrap input[type="radio"]:checked + label::before {
+  content: "-";
+}
+
+/* ^ accordion-mod */
+/* ^ accordion-mod */
+/* ^ accordion-mod */
+
+/* !   //////////////////////////// A - Mobile - Mod ////////////////////// */
+
+/* ? ///////////////////////////////// Data_Mod -Start ///////////////////////////// */
+/* ? ///////////////////////////////// Data_Mod -Start ///////////////////////////// */
+/* ? ///////////////////////////////// Data_Mod -Start ///////////////////////////// */
+.Data_Mod {
+  max-height: 100vh !important;
+  min-height: 100vh !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  overflow: hidden;
+}
+
+.Data_Mod_Back {
+  background-color: rgb(205, 245, 251) !important;
+}
+
+.Data_Mod_Body {
+  height: 90%;
+  width: 90%;
+}
+
+.allert_Z_Index {
+  z-index: 2 !important;
+}
+
+.Field_Column {
+  width: 100%;
+  display: flex !important;
+  flex-direction: row-reverse;
+}
+
+.Dispaly_Rtl {
+  direction: rtl;
+}
+
+.Label_text_town {
+  display: flex !important;
+  flex-direction: row-reverse;
+}
+
+.Label_text {
+  position: relative;
+}
+
+.Required_Text {
+  font-size: 1em !important;
+  position: relative;
+}
+
+.Comments {
+  max-height: 25em !important;
+  min-height: 3em;
+}
+
+.Btn_Column {
+  display: flex !important;
+  flex-direction: row-reverse;
+  justify-content: center;
+}
+
+.Address {
+  min-height: 7em !important;
+}
+
+.Data_Mod_Exit {
+  top: 14px !important;
+  background-color: rgba(113, 192, 192, 0.3);
+}
+
+.Data_Mod_zoon {
+  display: flex !important;
+  flex: auto !important;
+}
+
+.Field_DeskTop {
+  width: 100%;
+}
+
+.Field_width {
+  width: inherit;
+}
+
+/* ? ///////////////////////////////// Data_Mod -End ///////////////////////////// */
+/* ? ///////////////////////////////// Data_Mod -End ///////////////////////////// */
+/* ? ///////////////////////////////// Data_Mod -End ///////////////////////////// */
+
+/* ^ ////////////////////////////////   Mobile Mod /////////////////////////// */
+/* ^ ////////////////////////////////   Mobile Mod /////////////////////////// */
+
+/* ? ////////////////////////Mobile - Section 1--2 ///////////////////////////// */
+/* ? ////////////////////////Mobile - Section 1--2 ///////////////////////////// */
+
+.card-style-A_mobile {
+  box-shadow: 0 0.4rem 0.8rem hsl(0 0% 0% / 20%);
+  background: hsl(0 0% 100%);
+  color: hsl(200 50% 20%);
+  border-radius: 0.8ch;
+  border: 2px solid hsl(0 0% 83%);
+}
+
+.A_mobile_Imge {
+  max-width: 80%;
+}
+
+/* ? ////////////////////////Mobile - Section 1--2 ///////////////////////////// */
+/* ? ////////////////////////Mobile - Section 1--2 ///////////////////////////// */
+
+/* & ////////////////////////Mobile - Section -- 3 - /////////////////////////// */
+/* & ////////////////////////Mobile - Section -- 3 - /////////////////////////// */
+.C_Card_mobile {
+  box-shadow: 0 0.4rem 0.8rem hsl(0 0% 0% / 20%);
+  background: hsl(0 0% 100%);
+  color: hsl(200 50% 20%);
+  border-radius: 1.3ch;
+  border: 2px solid hsl(0 0% 83%);
+}
+
+.mob-small-card {
+  max-width: 49%;
+}
+
+.C_img_mobile {
+  max-width: 90%;
+}
+
+.Desk_3_col_maxWidth {
+  max-width: 32%;
+}
+
+.A_img_Desk {
+  max-width: 80%;
+}
+
+/* & ////////////////////////Mobile - Section -- 3 - /////////////////////////// */
+/* & ////////////////////////Mobile - Section -- 3 - /////////////////////////// */
+
+.B_Img_Desk {
+  max-width: 80%;
+}
+
+.B_Col_Width {
+  max-width: 32%;
+}
+
+.A_img_mobile {
+  max-width: 90%;
+}
+
+.colorIcon {
+  border: 0;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  margin: 0 15px;
+}
+
+.colorIconB {
+  border: 0;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  margin: 0 15px;
+  background-color: #00aeff;
+}
+
+.A_card_Desk {
+  box-shadow: 0 0.4rem 0.8rem hsl(0 0% 0% / 20%);
+  background: hsl(0 0% 100%);
+  color: hsl(200 50% 20%);
+  border-radius: 0.8ch;
+  border: 2px solid hsl(0 0% 83%);
+}
+
+.small_img_Desk-Tatp {
+  max-width: 86%;
+}
+
+.B_card_mobile {
+  box-shadow: 0 0.4rem 0.8rem hsl(0 0% 0% / 20%);
+  background: hsl(0 0% 100%);
+  color: hsl(200 50% 20%);
+  border-radius: 0.8ch;
+  border: 2px solid hsl(0 0% 83%);
+}
+
+.footer_card_mobile {
+  box-shadow: 0 0.4rem 0.8rem hsl(0 0% 0% / 20%);
+  background: hsl(0 0% 100%);
+  color: hsl(200 50% 20%);
+  border-radius: 0.8ch;
+  border: 2px solid hsl(0 0% 83%);
+}
+
+.C_Card_mobile {
+  box-shadow: 0 0.4rem 0.8rem hsl(0 0% 0% / 20%);
+  background: hsl(0 0% 100%);
+  color: hsl(200 50% 20%);
+  border-radius: 1.3ch;
+  border: 2px solid hsl(0 0% 83%);
+}
+
+.mob-small-card {
+  max-width: 49%;
+}
+
+.C_img_mobile {
+  max-width: 90%;
+}
+
+.C_img_Desk {
+  max-width: 90%;
+}
+
+/* todo ////////////////////-- Main Product  Mobile /////////////////////////// -- */
+/* todo ////////////////////-- Main Product  Mobile /////////////////////////// -- */
+.small-img-mob {
+  box-shadow: 4px 4px 2px lightblue;
+  max-width: 90%;
+}
+
+/* todo ////////////////////-- Main Product  Mobile /////////////////////////// -- */
+/* todo ////////////////////-- Main Product  Mobile /////////////////////////// -- */
+
+/* ~ ///////////// standerd hedder //////////////////////// */
+/* ~ ///////////// standerd hedder //////////////////////// */
+
+.Stnd_Hedder {
+  box-shadow: 0 1rem 2rem hsla(0, 86%, 66%, 0.2);
+  background: hsl(0 0% 100%);
+  color: hsl(200 50% 20%);
+  border-radius: 0.9ch;
+  border: 1px solid hsl(0 0% 83%);
+  margin: 0 auto;
+}
+
+.logo_img {
+  max-height: 65px !important;
+}
+
+/* ~ ///////////// standerd hedder //////////////////////// */
+/* ~ ///////////// standerd hedder //////////////////////// */
+
+/* !  /////////////standard///////////////// */
+/* !  /////////////standard///////////////// */
+
+html {
+  overflow: auto;
+  margin: 0;
+  padding: 0;
+}
+
+/* price cross */
+/* price cross */
+
+.price-cross {
+  position: relative;
+  display: inline-block;
+}
+
+.price-cross::before,
+.price-cross::after {
+  content: "";
+  width: 100%;
+  position: absolute;
+  right: 0;
+  top: 50%;
+}
+
+.price-cross::before {
+  border-bottom: 1px solid red;
+  -webkit-transform: skewY(-10deg);
+  transform: skewY(-10deg);
+}
+
+.price-cross::after {
+  border-bottom: 1px solid red;
+  -webkit-transform: skewY(10deg);
+  transform: skewY(10deg);
+}
+
+/* price cross */
+/* price cross */
+
+/* !  /////////////standard///////////////// */
+/* !  /////////////standard///////////////// */
+
+/* & //////////// dasht   ///////////////////////*/
+
+/* & //////////// dasht   ///////////////////////*/
