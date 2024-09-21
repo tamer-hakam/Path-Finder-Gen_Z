@@ -14,3 +14,4 @@ const mainUiTemplates = {};
 // renderMod(product);
 renderPrime(prime, viewType);
 renderSection(sections, products, viewType);
+initInfiniteScroll((rootMargin = "100px"));

@@ -226,10 +226,10 @@ function renderMod(product) {
 
   // Append the populated modal to the fragment
   fragment.appendChild(modal);
-  modal.classList.add("is-active");
 
   // Append the fragment to the body in one operation to minimize reflows
   document.body.appendChild(fragment);
+  modal.classList.add("is-active");
 
   // Select the modal and the exit button
   const mod = document.querySelector(`[product="mod_${product.id}"]`);
@@ -250,5 +250,3 @@ function exitMod(mod) {
   mod.classList.remove("is-active");
   document.body.removeChild(mod); // Optionally remove the modal after closing
 }
-
-// Placeholder function as mentioned in the prompt
