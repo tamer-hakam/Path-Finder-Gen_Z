@@ -13,7 +13,9 @@ function renderSection(sections, products, viewType) {
 
   const mainContainer = mainClone.firstElementChild;
   mainContainer.classList.add(viewType);
-  mainContainer.setAttribute("id", "screen_1");
+  console.log(screenNum);
+
+  mainContainer.setAttribute("id", `screen_${screenNum}`);
 
   // Iterate over each section and append items accordingly
   sections.forEach((section) => {
@@ -85,7 +87,9 @@ function renderSection(sections, products, viewType) {
 
   // Append the fragment to the body to batch all updates at once
   bodyContainer.appendChild(fragment);
-  const itemsContainer = bodyContainer.querySelector('[id="screen_1"]');
+  const itemsContainer = bodyContainer.querySelector(
+    `[id="screen_${screenNum}"]`
+  );
   addClickListenerToItems(itemsContainer);
   // ? // update ui
   // const viewTypeb = getViewType();
@@ -98,6 +102,7 @@ function addClickListenerToItems(parent) {
 
   // Loop through the selected items
   items.forEach((item) => {
+    console.log(item.dataset.stageid);
     // Add click event listener to each item
     item.addEventListener("click", function (event) {
       // Ensure the click refers to the card element (item) itself, not its child
@@ -110,5 +115,5 @@ function addClickListenerToItems(parent) {
 // Placeholder function as mentioned in the prompt
 function calldetails(stageId) {
   console.log("Placeholder function called with stageId:", stageId);
-  renderMod(products[stageId]);
+  renderMod(products[stageId], stageId);
 }

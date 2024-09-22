@@ -1,8 +1,14 @@
 // Main render function to handle overall structure
-function renderModSection(product, _modBody, _modTemp, _modElementsTemp) {
+function renderModSection(
+  product,
+  _modBody,
+  _modTemp,
+  _modElementsTemp,
+  stageId
+) {
   const sectionsobj = product.mod;
   if (!sectionsobj) {
-    console.error("لا يوجد مودول فى المنتج يا بهايم");
+    console.error(`${stageId} يا حمارة لا يوجد "مودول" فى `);
   }
   const sectionsContainer = _modBody.querySelector(
     `[data-type="sections-container"]`

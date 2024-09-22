@@ -14,5 +14,9 @@ const mainUiTemplates = {};
 
 // renderMod(product);
 renderPrime(prime, viewType);
-renderSection(sections, products, viewType);
-initInfiniteScroll((rootMargin = "100px"));
+renderSection(sections.sections0, products, viewType);
+window.onload = function () {
+  setTimeout(() => {
+    initInfiniteScroll(); // Initialize infinite scrolling after a delay
+  }, 500); // Adjust the delay as needed (in milliseconds)
+};

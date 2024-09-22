@@ -1,17 +1,20 @@
 // Global toggle for infinite scrolling
 var infiniteScroll = true; // Set to true to enable infinite scrolling
-var screenNum = 1;
-var screenNumLimt = 3;
+var screenNum = 0;
+var screenNumLimt = 1;
 
 // Function to simulate loading the next chunk (without actual logic)
 function loadNextChunk() {
   console.log("Loading next chunk..."); // Placeholder logic
-  console.log(screenNum);
-  console.log(screenNumLimt);
+  const currentSections = `sections${screenNum}`;
+
+  // console.log(screenNum);
+  // console.log(screenNumLimt);
+  // console.log(currentSections);
 
   // Placeholder calls for rendering sections - adjust as needed
   renderPrime(prime, getViewType());
-  renderSection(sections, products, getViewType());
+  renderSection(sections[currentSections], products, getViewType());
 
   // Reposition the sentinel at the bottom after loading content
   repositionSentinel();
@@ -56,32 +59,29 @@ function initInfiniteScroll(rootMargin = "100px") {
   // If infinite scroll is disabled, do nothing
   if (!infiniteScroll) return;
 
-  // Ensure the DOM is fully loaded before trying to append the sentinel
-  document.addEventListener("DOMContentLoaded", () => {
-    // Create the Intersection Observer to handle the scroll event
-    observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          // Trigger loadNextChunk() when the sentinel is visible
-          if (entry.isIntersecting) {
-            if (screenNumLimt >= screenNum) {
-              loadNextChunk();
-              screenNum++;
-            }
+  // Create the Intersection Observer to handle the scroll event
+  observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        // Trigger loadNextChunk() when the sentinel is visible
+        if (entry.isIntersecting) {
+          if (screenNumLimt >= screenNum) {
+            screenNum++;
+            loadNextChunk();
           }
-        });
-      },
-      {
-        rootMargin: rootMargin, // Load content before reaching the end
-      }
-    );
+        }
+      });
+    },
+    {
+      rootMargin: rootMargin, // Load content before reaching the end
+    }
+  );
 
-    // Create a sentinel element that will trigger loading when visible
-    const sentinel = document.createElement("div");
-    sentinel.className = "scroll-sentinel";
-    document.body.appendChild(sentinel); // Append the sentinel at the end of your scrollable container
+  // Create a sentinel element that will trigger loading when visible
+  const sentinel = document.createElement("div");
+  sentinel.className = "scroll-sentinel";
+  document.body.appendChild(sentinel); // Append the sentinel at the end of your scrollable container
 
-    // Start observing the sentinel element
-    observer.observe(sentinel);
-  });
+  // Start observing the sentinel element
+  observer.observe(sentinel);
 }

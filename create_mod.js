@@ -201,7 +201,7 @@ function exitMod(mod) {
   mod.classList.remove("is-active");
 }
 let modTemp = null;
-function renderMod(product) {
+function renderMod(product, stageId) {
   // Retrieve templates for the main layout
   // If the main modal has not been built before, create it
   if (!modTemp) {
@@ -235,7 +235,7 @@ function renderMod(product) {
   }
 
   modBody.appendChild(sectionsContainer);
-  renderModSection(product, modBody, modTemp, modElementsTemp);
+  renderModSection(product, modBody, modTemp, modElementsTemp, stageId);
   // createModFooter(product.details, modTemp, modCard);
 
   modTemp.classList.add("is-active");
@@ -254,5 +254,16 @@ function addClickListenerToExit(element, mod) {
 }
 function exitMod(mod) {
   mod.classList.remove("is-active");
+  const modBody = modTemp.querySelector(`[data-type="mod-body"]`);
+  const modCard = modTemp.querySelector(`[data-type="mod-card"]`);
+
+  // Remove dynamic content
+  removeDynamicContent(modBody, modCard);
 }
-// Placeholder function as mentioned in the prompt
+
+function removeDynamicContent(modBody, modCard) {
+  // Remove all previously added sections, prime, and footer
+  while (modBody.firstChild) {
+    modBody.removeChild(modBody.firstChild);
+  }
+}
