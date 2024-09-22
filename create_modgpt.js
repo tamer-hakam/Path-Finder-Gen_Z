@@ -197,62 +197,80 @@ const productV = {
     },
   },
 };
-function exitMod(mod) {
-  mod.classList.remove("is-active");
-}
+// A variable to hold the main modal element once created
 let modTemp = null;
-function renderMod(product) {
-  // Retrieve templates for the main layout
+
+function renderMod(product, options = {}) {
   // If the main modal has not been built before, create it
-  if (!modTemp) {
+  if (!mainModal) {
     const mainModal = document
       .querySelector(`[data-type="modal-temp"]`)
       .content.cloneNode(true);
     modTemp = mainModal.querySelector(`[data-type="mod"]`);
     document.body.appendChild(modTemp); // Append it once to the DOM
-    const exit = modTemp.querySelector(`[data-id="exit"]`);
-    addClickListenerToExit(exit, modTemp);
   }
-
-  const modElementsTemp = document
-    .querySelector(`[data-type="modal-elements-temp"]`)
-    .content.cloneNode(true);
-  const sectionsContainer = modElementsTemp.querySelector(
-    `[data-type="sections-container"]`
-  );
   // Get references to necessary elements
   const modBody = modTemp.querySelector(`[data-type="mod-body"]`);
   const modCard = modTemp.querySelector(`[data-type="mod-card"]`);
-  modTemp.setAttribute("product", `mod_${product.id}`);
 
-  // Create a DocumentFragment to hold the cloned content and minimize reflows
-  const fragment = document.createDocumentFragment();
+  // Ensure no old dynamic content
+  removeDynamicContent(modBody, modCard);
 
-  modTemp.classList.add(viewType);
+  // Apply classes to modBody and modCard based on options
+  updateClasses(modBody, modCard, options);
 
+  // Render prime content if applicable
   if (product.mod && product.modPrime) {
     renderModPrime(product, modBody);
   }
 
+  // Render sections container and append it to the modal body
+  const sectionsContainer = document
+    .querySelector(`[data-type="modal-elements-temp-container"]`)
+    .content.cloneNode(true);
   modBody.appendChild(sectionsContainer);
+
+  // Render sections and footer
   renderModSection(product, modBody, modTemp, modElementsTemp);
-  // createModFooter(product.details, modTemp, modCard);
+  // createModFooter(product.details, modCard);
 
+  // Activate modal
   modTemp.classList.add("is-active");
-  fragment.appendChild(modTemp);
 
-  // Append the fragment to the body in one operation to minimize reflows
-  document.body.appendChild(fragment);
-  // Set up event listeners after the content is appended to the DOM
+  // Add event listener to the exit button
+  const exit = modTemp.querySelector(`[data-id="exit"]`);
+  exit.removeEventListener("click", handleExit); // Prevent duplicate listeners
+  exit.addEventListener("click", handleExit);
 }
 
-function addClickListenerToExit(element, mod) {
-  // Add click event listener to the exit btn
-  element.addEventListener("click", function (event) {
-    exitMod(mod);
-  });
+function handleExit() {
+  // Hide modal and clean up dynamic content
+  modTemp.classList.remove("is-active");
+  const modBody = modTemp.querySelector(`[data-type="mod-body"]`);
+  const modCard = modTemp.querySelector(`[data-type="mod-card"]`);
+
+  // Remove dynamic content
+  removeDynamicContent(modBody, modCard);
 }
-function exitMod(mod) {
-  mod.classList.remove("is-active");
+
+function removeDynamicContent(modBody, modCard) {
+  // Remove all previously added sections, prime, and footer
+  while (modBody.firstChild) {
+    modBody.removeChild(modBody.firstChild);
+  }
+  while (modCard.firstChild) {
+    modCard.removeChild(modCard.firstChild);
+  }
 }
-// Placeholder function as mentioned in the prompt
+
+function updateClasses(modBody, modCard, options) {
+  // Remove old classes and apply new ones if provided
+  if (options.modBodyClass) {
+    modBody.className = ""; // Remove all classes
+    modBody.classList.add(...options.modBodyClass);
+  }
+  if (options.modCardClass) {
+    modCard.className = ""; // Remove all classes
+    modCard.classList.add(...options.modCardClass);
+  }
+}

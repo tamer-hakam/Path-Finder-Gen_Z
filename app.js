@@ -8,6 +8,7 @@ const mainUiTemp = document
 // Updated templates object with all identified templates
 
 const modTemplates = {};
+const modElementsTemplate = {};
 const utilsTemplates = {};
 const mainUiTemplates = {};
 

@@ -14,9 +14,9 @@
   <body>
     <div data-type="body-container" class="container"></div>
 
-    <template data-type="modal-elements-temp">
+    <template data-type="modal-temp">
       <!-- ! Mod  -->
-      <div data-type="mod" class="modal Mobile and_mx-w-full">
+      <div data-type="mod" class="modal is-active Mobile and_mx-w-full">
         <div class="modal-background"></div>
         <div data-type="mod-card" class="modal-card desk_mod">
           <header class="modal-card-head p-2 has-text-centered">
@@ -26,11 +26,11 @@
           <section data-type="mod-body" class="modal-card-body"></section>
         </div>
       </div>
-
-      <!-- ! section container  -->
-      <div data-type="sections-container" class="column is-full"></div>
     </template>
 
+    <template data-type="modal-elements-temp">
+      <!-- ! sections container  -->
+      <div data-type="sections-container" class="column is-full"></div>
       <!-- ! section  -->
       <div data-type="section" class="columns is-multiline is-12">
         <div class="column is-full"></div>
@@ -222,7 +222,10 @@
             class="columns m-0 p-0 is-12 is-multiline is-flex is-justify-content-space-around"
           >
             <!-- ! -->
-            <div data-id="item_1" class="column m-0 p-0 is-full B_card_mobile">
+            <div
+              data-id="item_1"
+              class="column m-0 p-0 is-full card-style_Test"
+            >
               <div class="container is-flex is-justify-content-center">
                 <figure class="image p-0 pt-3 B_Img_Desk">
                   <img data-id="item_1_imgsrc" class="" src="" />
