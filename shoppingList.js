@@ -1,20 +1,4 @@
 // Example input array of shopping list items
-let shoppingList = {
-  list: [
-    {
-      price: 250,
-      size: "5XL",
-      color: "color_1",
-      quantity: 1,
-      itemId: 1,
-      colorName: "بنى",
-    },
-  ],
-  total: {
-    totalPrice: 0,
-    totalItemNum: 0,
-  },
-};
 
 // Function to check if an item with the same size and color already exists
 function addItem(shoppingList, newItem) {
@@ -37,11 +21,11 @@ function addItem(shoppingList, newItem) {
   }
 
   // Call the update function to handle recalculations and DOM updates
-  update();
+  update(shoppingList);
 }
 
 // Helper function to calculate total price, total items, and update itemNum
-function update() {
+function update(shoppingList) {
   // Calculate total price and item count
   shoppingList.total.totalPrice = shoppingList.list.reduce(
     (acc, item) => acc + item.price,
@@ -82,11 +66,13 @@ function removeItem(itemId) {
   console.log(`Item with itemId ${id} removed.`);
 }
 
-function createShoppingListTable(firstRow) {
+function createShoppingListTable(shoppingList) {
   const parent = document.querySelector(`[data-id="tbody"]`);
-  const row = createShoppingListRow(firstRow);
+  const row = createShoppingListRow(shoppingList.list[0]);
   parent.appendChild(row);
-  update();
+  update(shoppingList);
+  console.log(shoppingList.total);
+
   updateShoppingListDOMTotal(shoppingList.total);
   addEditListeners(row);
   addDeleteListeners(row);
@@ -142,6 +128,8 @@ function editElement(parentElement) {
 }
 
 function updateShoppingListDOMTotal(total) {
+  console.log(`${total.totalPrice}`);
+
   const totalPrice = document.querySelector(`[data-id="total-price"]`);
   const totalItemsNum = document.querySelector(`[data-id="total-items-num"]`);
   totalPrice.textContent = `${total.totalPrice}`;
@@ -212,14 +200,4 @@ const newItemE = {
   colorName: "خراوى",
 };
 
-createShoppingListTable(shoppingList.list[0]);
-
 addItem(shoppingList, newItem);
-addItem(shoppingList, newItemB);
-addItem(shoppingList, newItemC);
-addItem(shoppingList, newItemD);
-addItem(shoppingList, newItemE);
-
-// Example usage: Removing an item
-// ; // Removes the item with itemNum 1
-// removeItem(1);

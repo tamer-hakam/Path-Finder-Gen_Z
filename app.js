@@ -13,7 +13,7 @@ const utilsTemplates = {};
 const mainUiTemplates = {};
 
 // renderMod(product);
-renderPrime(prime, viewType);
+renderPrime(products.idA1, viewType);
 renderSection(sections.sections0, products, viewType);
 window.onload = function () {
   setTimeout(() => {

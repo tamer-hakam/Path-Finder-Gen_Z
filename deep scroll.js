@@ -13,7 +13,7 @@ function loadNextChunk() {
   // console.log(currentSections);
 
   // Placeholder calls for rendering sections - adjust as needed
-  renderPrime(prime, getViewType());
+  renderPrime(products.idA1, getViewType());
   renderSection(sections[currentSections], products, getViewType());
 
   // Reposition the sentinel at the bottom after loading content
@@ -52,6 +52,7 @@ function stopInfiniteScroll() {
   }
 
   console.log("Infinite scrolling stopped.");
+  createMainFooter({});
 }
 
 // Updated initInfiniteScroll function to assign the observer to the global variable
@@ -68,6 +69,8 @@ function initInfiniteScroll(rootMargin = "100px") {
           if (screenNumLimt >= screenNum) {
             screenNum++;
             loadNextChunk();
+          } else if (screenNumLimt < screenNum) {
+            stopInfiniteScroll();
           }
         }
       });

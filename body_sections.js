@@ -51,14 +51,13 @@ function renderSection(sections, products, viewType) {
               element.src = value; // Update image source
             } else if (
               key.startsWith("price") ||
-              key.startsWith("crossedprice")
+              key.startsWith("crossedPrice")
             ) {
               element.textContent = `${value}_Egp`;
             } else if (key.startsWith("color")) {
               currentItem.details.colors.forEach((color) => {
-                const button = document.createElement("button");
-                button.classList.add("colorIconB");
-                button.style.backgroundColor = color;
+                const button = createColorBtn(color);
+
                 element.appendChild(button);
               });
             } else {
@@ -95,6 +94,19 @@ function renderSection(sections, products, viewType) {
   // const viewTypeb = getViewType();
   // updateViewType(viewTypeb);
 }
+
+function createColorBtn(color) {
+  const button = document.createElement("button");
+  button.classList.add("colorIconB");
+  if (color.length == 1) {
+    button.style.backgroundColor = color[0];
+  } else if (color.length > 1) {
+    const linerGradient = `linear-gradient(to right, ${color[0]} 50%, ${color[1]} 50%)`;
+    button.style.background = linerGradient;
+  }
+  return button;
+}
+
 function addClickListenerToItems(parent) {
   // Select all child elements with dataset.stagetype equal to "item"
 
@@ -102,7 +114,6 @@ function addClickListenerToItems(parent) {
 
   // Loop through the selected items
   items.forEach((item) => {
-    console.log(item.dataset.stageid);
     // Add click event listener to each item
     item.addEventListener("click", function (event) {
       // Ensure the click refers to the card element (item) itself, not its child

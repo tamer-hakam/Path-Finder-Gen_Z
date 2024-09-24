@@ -1,3 +1,11 @@
+/* .breadcrumb li:first-child a {
+  padding-left: 0.75em;
+} */
+
+.breadcrumb ul {
+  align-items: center;
+}
+
 .zoom {
   position: relative;
 }
@@ -826,11 +834,24 @@
   margin: 0 15px;
 }
 
+.colorIconC {
+  /* option mod color btn */
+  border: 0;
+  border-radius: 35%;
+  width: 24px;
+  height: 24px;
+  margin: 0 15px;
+  background-color: #00aeff;
+  cursor: pointer;
+}
+
 .colorIconB {
+  /* body sections  color btn */
+
   border: 0;
   border-radius: 50%;
-  width: 16px;
-  height: 16px;
+  width: 24px;
+  height: 24px;
   margin: 0 15px;
   background-color: #00aeff;
 }

@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/src_assets/bulma.min.css" />
+    <link rel="stylesheet" href="source.css" />
+    <title>Path-Finder 0.7.1</title>
+  </head>
+
+  <body>
+    <!-- & //////////////////////  Desk- A - img -mod   ///////////////// -->
+    <div class="modal DeskTop">
+      <div class="modal-background"></div>
+      <div class="modal-content">
+        <section class="section p-3">
+          <div class="columns is-multiline is-justify-content-center is-12">
+            <div class="column is-full is-flex is-justify-content-center">
+              <div class="">
+                <div id="leftBtn" class="slider-btn left-btn">
+                  <img
+                    class="svg-btn"
+                    src="media_assets/stand/left.svg"
+                    alt=""
+                  />
+                </div>
+                <div class="slides-container">
+                  <div class="slides-ul">
+                    <div class="slide Img-Div">
+                      <figure class="image frist-img">
+                        <img src="media_assets/test/1.png" />
+                      </figure>
+                    </div>
+                    <div class="slide">
+                      <figure class="image">
+                        <img src="media_assets/test/2.png" />
+                      </figure>
+                    </div>
+                    <div class="slide">
+                      <figure class="image">
+                        <img src="media_assets/test/3.png" />
+                      </figure>
+                    </div>
+                  </div>
+                </div>
+                <figure class="image holder">
+                  <img src="media_assets/stand/hoder.gif" />
+                </figure>
+                <button id="leftBtn" class="slider-btn right-btn">
+                  <img
+                    src="media_assets/stand/right.svg"
+                    class="svg-btn"
+                    alt=""
+                  />
+                </button>
+              </div>
+            </div>
+            <div
+              id="modColorsImgDiv"
+              class="column is-full has-text-centered mb-0 pt-1 mt-0 pb-0"
+            >
+              <figure class="pl-2 pr-2 pb-0 is-inline-block">
+                <img class="Mod-Img-small" src="media_assets/stand/hoder.gif" />
+              </figure>
+              <figure class="pl-2 pr-2 pb-0 is-inline-block">
+                <img class="Mod-Img-small" src="media_assets/stand/hoder.gif" />
+              </figure>
+              <figure class="pl-2 pr-2 pb-0 is-inline-block">
+                <img class="Mod-Img-small" src="media_assets/stand/hoder.gif" />
+              </figure>
+            </div>
+          </div>
+        </section>
+      </div>
+      <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+
+    <!-- & //////////////////  Desk- B - C - img -mod   ///////////////// -->
+    <div class="modal DeskTop and_overf-hiddn">
+      <div class="modal-background"></div>
+      <div class="modal-content">
+        <section class="section p-0">
+          <div class="container is-flex is-justify-content-center">
+            <figure class="image C_img_mobile">
+              <img class="" src="media_assets/test/200.jpg" />
+            </figure>
+          </div>
+        </section>
+      </div>
+      <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+
+    <!-- & //////////////////////////Cart////////////// -->
+    <div class="modal All">
+      <div class="modal-background Mod_Back"></div>
+      <div class="modal-card Mod_Card_Box">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Modal title</p>
+          <button class="delete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body card-bodyflow pl-1 pr-1">
+          <!-- headder -->
+
+          <div class="columns thead_Columns is-12 p-0">
+            <div id="" class="column is-full is-flex">
+              <div
+                class="columns is-12 is-mobile is-vcentered pl-4 pr-4 has-text-centered"
+              >
+                <div
+                  class="column card-style_cartTdH is-1 is-flex is-justify-content-center is-flex-wrap-wrap is-align-content-center"
+                >
+                  <span class="icon zzz">
+                    <i class="fa-regular fa-pen-to-square"></i>
+                  </span>
+                </div>
+                <div
+                  class="column cart_img_befo card-style_cartTdH is-2 is-flex is-justify-content-center is-flex-wrap-wrap is-align-content-center"
+                >
+                  <span class="icon crtImgicn">
+                    <i class="fa-regular fa-image"></i>
+                  </span>
+                  <div class="cart_img_hid">
+                    <img src="media_assets/stand/hoder_small.gif" class="zzz" />
+                  </div>
+                </div>
+                <!-- txt line - start -->
+                <div
+                  class="column card-style_cartTdH is-5 has-text-centered is-flex is-justify-content-center is-flex-wrap-wrap is-align-content-center"
+                >
+                  <h4 id="" class="has-text-link has-text-weight-semibold">
+                    نـــــوع
+                  </h4>
+                </div>
+                <!-- txt line - end -->
+                <!-- cart - start -->
+                <div
+                  class="column is-2 card-style_cartTdH is-flex is-justify-content-center is-flex-wrap-wrap is-align-content-center"
+                >
+                  <h4 id="" class="has-text-link has-text-weight-semibold">
+                    سعر
+                  </h4>
+                </div>
+                <div
+                  class="column is-1 card-style_cartTdH has-text-centered is-flex is-justify-content-center is-flex-wrap-wrap is-align-content-center"
+                >
+                  <h4 id="" class="has-text-link has-text-weight-semibold">
+                    عدد
+                  </h4>
+                </div>
+                <div
+                  class="column is-1 card-style_cartTdH has-text-centered is-flex is-justify-content-center is-flex-wrap-wrap is-align-content-center"
+                >
+                  <span class="icon zzz">
+                    <i class="fa-solid fa-trash-can"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- body -->
+          <div class="columns is-multiline zz is-12 p-0 pt-4">
+            <div id="prodANav" class="card_Animi column is-full is-flex">
+              <div
+                class="columns is-12 is-mobile is-vcentered pl-4 pr-4 has-text-centered"
+              >
+                <div
+                  data-target="prodA"
+                  class="detailsIcon column card-style_cartTd is-1 is-flex is-justify-content-center is-flex-wrap-wrap is-align-content-center"
+                >
+                  <span class="icon-text has-text-info">
+                    <span class="icon"> <i class="fa-solid fa-list"></i> </span>
+                  </span>
+                </div>
+                <div
+                  class="column card-style_cartTd is-2 is-flex p-1 is-justify-content-center is-flex-wrap-wrap is-align-content-center"
+                >
+                  <figure
+                    class="image cart_img is-hidden-desktop is-hidden-tablet"
+                  >
+                    <img src="media_assets/test/55.png" class="is-rounded" />
+                  </figure>
+                  <figure class="image cart_img_desk is-hidden-mobile">
+                    <img src="media_assets/test/55.png" class="is-rounded" />
+                  </figure>
+                </div>
+                <!-- txt line - start -->
+                <div
+                  class="column card-style_cartTd is-5 has-text-centered is-flex is-justify-content-center is-flex-wrap-wrap is-align-content-center"
+                >
+                  <h4 id="" class="has-text-link has-text-weight-normal">
+                    شميز كاروة مخطط اى حوار
+                  </h4>
+                </div>
+                <!-- txt line - end -->
+                <!-- cart - start -->
+                <div
+                  class="column is-2 card-style_cartTd is-flex is-justify-content-center is-flex-wrap-wrap is-align-content-center"
+                >
+                  <h4 id="" class="has-text-link has-text-weight-semibold">
+                    550
+                  </h4>
+                </div>
+                <div
+                  class="column is-1 card-style_cartTd has-text-centered is-flex is-justify-content-center is-flex-wrap-wrap is-align-content-center"
+                >
+                  <h4 id="" class="has-text-link has-text-weight-semibold">
+                    3
+                  </h4>
+                </div>
+                <div
+                  class="column is-1 card-style_cartTd has-text-centered is-flex is-justify-content-center is-flex-wrap-wrap is-align-content-center"
+                >
+                  <span class="icon">
+                    <i class="fa-solid fa-trash-can"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div id="prodA" class="column detailsIcon-content testH is-12">
+              <div class="columns is-12 is-flex is-multiline">
+                <div class="column pl-4 pr-4 is-full has-text-centered">
+                  <table
+                    role="table"
+                    class="table tabelDivs tableB is-striped is-fullwidth"
+                  >
+                    <thead class=" ">
+                      <tr>
+                        <th class=" ">
+                          <span class="icon testF">
+                            <i class="fa-regular fa-pen-to-square"></i>
+                          </span>
+                        </th>
+                        <th class=" ">سعر</th>
+                        <th class=" ">مقاس</th>
+                        <th class=" ">لون</th>
+                        <th class=" ">عدد</th>
+                        <th class="">
+                          <span class="icon testF">
+                            <i class="fa-solid fa-trash-can"></i>
+                          </span>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tfoot>
+                      <tr>
+                        <th class=""><abbr></abbr></th>
+                        <th class=""><abbr>850</abbr></th>
+                        <th class=""></th>
+                        <th class=""></th>
+                        <th class=""><abbr>4</abbr></th>
+                        <th class=""><abbr></abbr></th>
+                      </tr>
+                    </tfoot>
+                    <tbody>
+                      <tr>
+                        <td class="">
+                          <span class="icon">
+                            <i class="fa-regular fa-pen-to-square"></i>
+                          </span>
+                        </td>
+                        <td class="">250</td>
+                        <td class="">5XL</td>
+                        <td class="">بنى</td>
+                        <td class="">1</td>
+                        <td class="">
+                          <span class="icon">
+                            <i class="fa-solid fa-trash-can"></i>
+                          </span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="">
+                          <span class="icon">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                          </span>
+                        </td>
+                        <td class="">400</td>
+                        <td class="">5XL</td>
+                        <td class="">بنى</td>
+                        <td class="">2</td>
+                        <td class="">
+                          <span class="icon">
+                            <i class="fa-regular fa-trash-can"></i>
+                          </span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="">
+                          <span class="icon">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                          </span>
+                        </td>
+                        <td class="">400</td>
+                        <td class="">5XL</td>
+                        <td class="">بنى</td>
+                        <td class="">2</td>
+                        <td class="">
+                          <span class="icon">
+                            <i class="fa-regular fa-trash-can"></i>
+                          </span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="">
+                          <span class="icon">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                          </span>
+                        </td>
+                        <td class="">400</td>
+                        <td class="">5XL</td>
+                        <td class="">بنى</td>
+                        <td class="">2</td>
+                        <td class="">
+                          <span class="icon">
+                            <i class="fa-regular fa-trash-can"></i>
+                          </span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="">
+                          <span class="icon">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                          </span>
+                        </td>
+                        <td class="">400</td>
+                        <td class="">5XL</td>
+                        <td class="">بنى</td>
+                        <td class="">2</td>
+                        <td class="">
+                          <span class="icon">
+                            <i class="fa-regular fa-trash-can"></i>
+                          </span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div id="prodBNav" class="card_Animi column is-full is-flex">
+              <div
+                class="columns is-12 is-mobile is-vcentered pl-4 pr-4 has-text-centered"
+              >
+                <div
+                  data-target="prodB"
+                  class="detailsIcon column card-style_cartTd is-1 is-flex is-justify-content-center is-flex-wrap-wrap is-align-content-center"
+                >
+                  <span class="icon"> <i class="fa-solid fa-list"></i> </span>
+                </div>
+                <div
+                  class="column card-style_cartTd is-2 is-flex p-1 is-justify-content-center is-flex-wrap-wrap is-align-content-center"
+                >
+                  <figure
+                    class="image cart_img is-hidden-desktop is-hidden-tablet"
+                  >
+                    <img src="media_assets/test/1.png" class="is-rounded" />
+                  </figure>
+                  <figure class="image cart_img_desk is-hidden-mobile">
+                    <img src="media_assets/test/1.png" class="is-rounded" />
+                  </figure>
+                </div>
+                <!-- txt line - start -->
+                <div
+                  class="column card-style_cartTd is-5 has-text-centered is-flex is-justify-content-center is-flex-wrap-wrap is-align-content-center"
+                >
+                  <h4 id="" class="has-text-link has-text-weight-normal">
+                    شميز كاروة مخطط اى حوار
+                  </h4>
+                </div>
+                <!-- txt line - end -->
+                <!-- cart - start -->
+                <div
+                  class="column is-2 card-style_cartTd is-flex is-justify-content-center is-flex-wrap-wrap is-align-content-center"
+                >
+                  <h4 id="" class="has-text-link has-text-weight-semibold">
+                    550
+                  </h4>
+                </div>
+                <div
+                  class="column is-1 card-style_cartTd has-text-centered is-flex is-justify-content-center is-flex-wrap-wrap is-align-content-center"
+                >
+                  <h4 id="" class="has-text-link has-text-weight-semibold">
+                    3
+                  </h4>
+                </div>
+                <div
+                  class="column is-1 card-style_cartTd has-text-centered is-flex is-justify-content-center is-flex-wrap-wrap is-align-content-center"
+                >
+                  <span class="icon">
+                    <i class="fa-solid fa-trash-can"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div id="prodB" class="column detailsIcon-content testH is-12">
+              <div class="columns is-12 is-flex is-multiline">
+                <div class="column pl-4 pr-4 is-full has-text-centered">
+                  <table
+                    role="table"
+                    class="table tabelDivs tableB is-striped is-fullwidth"
+                  >
+                    <thead class=" ">
+                      <tr>
+                        <th class=" ">
+                          <span class="icon testF">
+                            <i class="fa-regular fa-pen-to-square"></i>
+                          </span>
+                        </th>
+                        <th class=" ">سعر</th>
+                        <th class=" ">مقاس</th>
+                        <th class=" ">لون</th>
+                        <th class=" ">عدد</th>
+                        <th class="">
+                          <span class="icon testF">
+                            <i class="fa-solid fa-trash-can"></i>
+                          </span>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tfoot>
+                      <tr>
+                        <th class=""><abbr></abbr></th>
+                        <th class=""><abbr>850</abbr></th>
+                        <th class=""></th>
+                        <th class=""></th>
+                        <th class=""><abbr>4</abbr></th>
+                        <th class=""><abbr></abbr></th>
+                      </tr>
+                    </tfoot>
+                    <tbody>
+                      <tr>
+                        <td class="">
+                          <span class="icon">
+                            <i class="fa-regular fa-pen-to-square"></i>
+                          </span>
+                        </td>
+                        <td class="">250</td>
+                        <td class="">5XL</td>
+                        <td class="">بنى</td>
+                        <td class="">1</td>
+                        <td class="">
+                          <span class="icon">
+                            <i class="fa-solid fa-trash-can"></i>
+                          </span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="">
+                          <span class="icon">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                          </span>
+                        </td>
+                        <td class="">400</td>
+                        <td class="">5XL</td>
+                        <td class="">بنى</td>
+                        <td class="">2</td>
+                        <td class="">
+                          <span class="icon">
+                            <i class="fa-regular fa-trash-can"></i>
+                          </span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="">
+                          <span class="icon">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                          </span>
+                        </td>
+                        <td class="">400</td>
+                        <td class="">5XL</td>
+                        <td class="">بنى</td>
+                        <td class="">2</td>
+                        <td class="">
+                          <span class="icon">
+                            <i class="fa-regular fa-trash-can"></i>
+                          </span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="">
+                          <span class="icon">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                          </span>
+                        </td>
+                        <td class="">400</td>
+                        <td class="">5XL</td>
+                        <td class="">بنى</td>
+                        <td class="">2</td>
+                        <td class="">
+                          <span class="icon">
+                            <i class="fa-regular fa-trash-can"></i>
+                          </span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="">
+                          <span class="icon">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                          </span>
+                        </td>
+                        <td class="">400</td>
+                        <td class="">5XL</td>
+                        <td class="">بنى</td>
+                        <td class="">2</td>
+                        <td class="">
+                          <span class="icon">
+                            <i class="fa-regular fa-trash-can"></i>
+                          </span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <!-- * -->
+          </div>
+        </section>
+        <footer class="modal-card-foot is-justify-content-space-around">
+          <div class="buttons columns is-12">
+            <div class="column is-6">
+              <button class="button">Cancel</button>
+            </div>
+            <div class="column is-6"><button class="button">Save</button></div>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <!-- & //////////////////////////delet conf////////////// -->
+    <div class="modal All">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Modal title</p>
+          <button class="delete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+          <div class="columns is-mobile is-multiline is-12">
+            <div
+              class="column is-12 p-1 mt-0 is-flex is-align-items-center is-justify-content-center has-text-centered"
+            >
+              <h1 class="title has-text-centered is-size-3 is-family-monospace">
+                هل حقا تريد إزالة هذا المنتج ؟
+              </h1>
+            </div>
+            <div class="column is-justify-content-center is-flex is-6">
+              <figure class="image delet_img">
+                <img id="" class="is-rounded" src="media_assets/test/55.png" />
+              </figure>
+            </div>
+            <div
+              class="column is-6 p-1 mt-0 is-flex is-align-items-center has-text-centered"
+            >
+              <h2 class="title has-text-centered is-size-4 is-family-monospace">
+                توكة أسكرانشي قطن✨
+              </h2>
+            </div>
+            <div class="column is-12 p-1 mt-0 has-text-centered">
+              <h2
+                class="title has-text-right pl-3 pr-3 mt-4 mb-1 is-size-5 is-family-monospace has-text-weight-semibold"
+              >
+                علبة 👈 100 قطعة أربطة شعر مرنة متعددة الألوان
+              </h2>
+            </div>
+            <div class="column pl-4 pr-4 is-full has-text-centered">
+              <table
+                role="table"
+                class="table tabelDivs tableB is-striped is-fullwidth"
+              >
+                <thead class="has-text-centered">
+                  <tr>
+                    <th class=" ">سعر</th>
+                    <th class=" ">مقاس</th>
+                    <th class=" ">لون</th>
+                    <th class=" ">عدد</th>
+                  </tr>
+                </thead>
+                <tfoot>
+                  <tr>
+                    <th class=""><abbr>850</abbr></th>
+                    <th class=""></th>
+                    <th class=""></th>
+                    <th class=""><abbr>4</abbr></th>
+                  </tr>
+                </tfoot>
+                <tbody>
+                  <tr>
+                    <td class="">250</td>
+                    <td class="">5XL</td>
+                    <td class="">بنى</td>
+                    <td class="">1</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="column is-full">
+              <div
+                class="notification ml-4 mr-4 mb-2 mt-3 pb-2 has-text-right has-text-centered-mobile"
+              >
+                <strong>
+                  <h1>Pellentesque risus mi , tempus</h1>
+                </strong>
+              </div>
+            </div>
+          </div>
+        </section>
+        <footer class="modal-card-foot">
+          <div class="container m-0 p-0">
+            <div
+              class="columns is-flex is-12 is-mobile is-multiline is-justify-content-space-around m-0"
+            >
+              <div class="column is-6 has-text-centered mt-1">
+                <button
+                  id="addToCart"
+                  class="button is-size-5 p-4 pl-5 pr-5 mb-0 is-family-monospace has-text-weight-bold"
+                >
+                  تأكيد
+                </button>
+              </div>
+              <div class="column is-6 has-text-centered mt-1">
+                <button
+                  id="addToCartb"
+                  class="button is-size-5 p-4 is-primary mb-0 is-family-monospace has-text-white-bis has-text-weight-bold"
+                >
+                  إلغاء
+                </button>
+              </div>
+            </div>
+            <!-- price foot-end -->
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <!-- & //////////////////////////delet offer seal conf ////////////// -->
+    <div class="modal All and_mx-w-full">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Modal title</p>
+          <button class="delete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+          <div class="columns is-mobile is-multiline is-12">
+            <div class="column is-justify-content-center is-flex is-6">
+              <figure class="image delet_img">
+                <img id="" class="is-rounded" src="media_assets/test/55.png" />
+              </figure>
+            </div>
+            <div
+              class="column is-6 p-1 mt-0 is-flex is-align-items-center has-text-centered"
+            >
+              <h2 class="title has-text-centered is-size-4 is-family-monospace">
+                توكة أسكرانشي قطن✨
+              </h2>
+            </div>
+            <div
+              class="column is-12 p-1 mt-0 is-flex is-align-items-center is-justify-content-flex-end has-text-right"
+            >
+              <h1 class="title is-size-5 is-family-monospace">
+                فى حال إزالة هذا العنصر سوف تفقد الخصم التالى
+              </h1>
+            </div>
+            <div class="column is-full">
+              <div
+                class="notification ml-4 mr-4 mb-2 mt-3 pb-2 has-text-right has-text-centered-mobile"
+              >
+                <strong>
+                  <h1>Pellentesque risus mi , tempus</h1>
+                </strong>
+              </div>
+            </div>
+          </div>
+        </section>
+        <footer class="modal-card-foot">
+          <div class="container m-0 p-0">
+            <div
+              class="columns is-flex is-12 is-mobile is-multiline is-justify-content-space-around m-0"
+            >
+              <div class="column is-6 has-text-centered mt-1">
+                <button
+                  id="addToCart"
+                  class="button is-size-5 p-4 pl-5 pr-5 mb-0 is-family-monospace has-text-weight-bold"
+                >
+                  تأكيد
+                </button>
+              </div>
+              <div class="column is-6 has-text-centered mt-1">
+                <button
+                  id="addToCartb"
+                  class="button is-size-5 p-4 is-primary mb-0 is-family-monospace has-text-white-bis has-text-weight-bold"
+                >
+                  إلغاء
+                </button>
+              </div>
+            </div>
+            <!-- price foot-end -->
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <nav
+      data-type="testNav"
+      class="breadcrumb is-centered is-large has-bullet-separator"
+      aria-label=""
+    ></nav>
+
+    <!-- & ///////////  modal-Desk_Top- type-A -option ///////////////// -->
+    <template data-type="option-a-mod">
+      <div class="modal is-active Mobile and_mx-w-full">
+        <div class="modal-background Mod_Back"></div>
+        <div class="modal-card Mod_Card_h Modl_Card_prim_deskTop">
+          <header class="modal-card-head">
+            <p class="modal-card-title">Modal title</p>
+            <button class="delete" aria-label="close"></button>
+          </header>
+
+          <section data-type="mod-body" class="modal-card-body">
+            <div class="columns is-multiline is-12">
+              <!-- ! img  -->
+              <div class="column is-6-desktop is-12-mobile">
+                <div class="columns is-multiline is-12 is-mobile">
+                  <!--  img -->
+                  <div class="column is-7 pb-1 p-2">
+                    <figure class="image">
+                      <img data-type="img" class="img_mod_mobile" src="" />
+                    </figure>
+                  </div>
+                  <!-- price -->
+                  <div
+                    class="column is-5 p-0 is-flex is-align-items-center has-text-centered"
+                  >
+                    <div class="container mr-4">
+                      <p
+                        data-type="crossedPrice"
+                        class="price-cross pl-1 is-size-5 has-text-weight-bold has-text-grey mt-0"
+                      >
+                        330 EGP
+                      </p>
+                      <p
+                        data-type="price"
+                        class="has-text-weight-bold is-size-5 pb-0 mt-1"
+                      >
+                        250 EGP
+                      </p>
+                      <p
+                        data-type="priceB"
+                        class="testH has-text-weight-bold is-size-5 pb-0 mt-1"
+                      >
+                        200 EGP
+                      </p>
+                    </div>
+                  </div>
+                  <!--  number -->
+                  <div class="column is-full">
+                    <nav class="pagination is-centered is-rounded">
+                      <ul class="pagination-list m-0">
+                        <li><a class="pagination-link">-</a></li>
+                        <li><a class="pagination-link">1</a></li>
+                        <li><a class="pagination-link">+</a></li>
+                      </ul>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+              <!-- ! color -->
+              <div class="column is-6-desktop is-12-mobile">
+                <div class="columns is-multiline is-12">
+                  <!-- color nav -->
+                  <div id="colorNav" class="column is-full">
+                    <div class="columns is-mobile">
+                      <div
+                        class="column is-one-quarter-mobile pb-0 p-0 is-flex is-justify-content-space-around is-align-items-center"
+                      >
+                        <span class="icon">
+                          <i class="is-size-3 fa-regular fa-pen-to-square"></i>
+                        </span>
+                      </div>
+
+                      <div
+                        class="column is-two-quarter-mobile has-text-centered p-0 is-flex is-justify-content-space-around is-align-items-center"
+                      >
+                        <span
+                          data-type="color-nav-tag"
+                          class="tag is-link mr-4 is-small"
+                          >-------
+                        </span>
+                        <h4
+                          data-type="color-name"
+                          class="is-inline-block ml-1 has-text-weight-bold is-size-5"
+                        >
+                          بنفسجى
+                        </h4>
+                      </div>
+
+                      <div
+                        class="column is-one-quarter-mobile has-text-centered p-0 is-flex is-justify-content-space-around is-align-items-center"
+                      >
+                        <span id="" class="has-text-weight-bold is-size-4"
+                          >اللـون</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- color -->
+                  <div
+                    id="colorTag"
+                    class="column is-full has-text-centered pt-0 pb-0"
+                  >
+                    <span id="" class="has-text-weight-bold is-size-5"
+                      >تحديد اللـون</span
+                    >
+                  </div>
+
+                  <div
+                    data-type="colors-container"
+                    class="column is-full"
+                  ></div>
+                </div>
+              </div>
+              <!-- ! table -->
+              <div class="column is-6-desktop is-12-mobile">
+                <div class="columns testB is-12 is-flex is-multiline">
+                  <div class="column is-full has-text-centered">
+                    <table
+                      role="table"
+                      class="table tableB is-striped is-fullwidth"
+                    >
+                      <thead>
+                        <tr>
+                          <th class="">
+                            <span class="icon">
+                              <i class="white fa-regular fa-pen-to-square"></i>
+                            </span>
+                          </th>
+                          <th class="">سعر</th>
+                          <th class=" ">مقاس</th>
+                          <th class=" ">لـــون</th>
+                          <th class=" ">عدد</th>
+                          <th class="">
+                            <span class="icon">
+                              <i class="white fa-solid fa-trash-can"></i>
+                            </span>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tfoot>
+                        <tr>
+                          <th><abbr></abbr></th>
+                          <th data-id="total-price"><abbr></abbr></th>
+                          <th></th>
+                          <th></th>
+                          <th data-id="total-items-num"><abbr></abbr></th>
+                          <th><abbr></abbr></th>
+                        </tr>
+                      </tfoot>
+                      <tbody data-id="tbody"></tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <!-- ! size -->
+              <div class="column is-6-desktop is-12-mobile">
+                <!-- size nav -->
+                <div class="columns is-hidden is-mobile">
+                  <div
+                    class="column is-one-quarter-mobile pb-0 p-0 is-flex is-justify-content-space-around is-align-items-center"
+                  >
+                    <span class="icon">
+                      <i class="is-size-3 fa-regular fa-pen-to-square"></i>
+                    </span>
+                  </div>
+                  <div
+                    class="column is-two-quarter-mobile has-text-centered p-0 is-flex is-justify-content-space-around is-align-items-center"
+                  >
+                    <h4
+                      data-type="sizeText"
+                      class="is-inline-block has-text-link has-text-weight-bold is-size-4"
+                    >
+                      5XL
+                    </h4>
+                  </div>
+                  <div
+                    class="column is-one-quarter-mobile has-text-centered p-0 is-flex is-justify-content-space-around is-align-items-center"
+                  >
+                    <span id="" class="has-text-weight-bold is-size-4"
+                      >المقاس</span
+                    >
+                  </div>
+                </div>
+                <!-- size Tag -->
+                <div
+                  id="sizeTag"
+                  class="column is-full has-text-centered pt-0 pb-0"
+                >
+                  <span id="" class="has-text-weight-bold is-size-5"
+                    >تحديد المقـاس</span
+                  >
+                </div>
+                <!-- size Element  -->
+                <div data-type="size-container" class="column is-full"></div>
+
+                <!-- add new-offer -->
+                <div id="addNewOffer" class="column is-full is-hidden">
+                  <div
+                    class="notification ml-4 mr-4 mb-2 mt-3 pb-2 has-text-centered"
+                  >
+                    <strong>
+                      <h1>Pellentesque risus mi , tempus</h1>
+                    </strong>
+                  </div>
+                </div>
+                <!-- add new -->
+                <div id="addNew" class="column is-full p-0">
+                  <div class="buttons is-justify-content-center pl-5 pr-5">
+                    <button
+                      class="button is-large is-primary has-text-weight-bold"
+                    >
+                      قطعة أخرى +
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <footer class="modal-card-foot is-justify-content-space-around">
+            <div class="buttons columns is-12">
+              <div class="column is-6">
+                <button class="button">Cancel</button>
+              </div>
+              <div class="column is-6">
+                <button class="button">Save</button>
+              </div>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </template>
+
+    <script src="helper.js"></script>
+    <script src="shoppingList.js"></script>
+    <script src="type_A options.js"></script>
+  </body>
+</html>

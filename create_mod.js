@@ -197,9 +197,7 @@ const productV = {
     },
   },
 };
-function exitMod(mod) {
-  mod.classList.remove("is-active");
-}
+
 let modTemp = null;
 function renderMod(product, stageId) {
   // Retrieve templates for the main layout
@@ -252,6 +250,7 @@ function addClickListenerToExit(element, mod) {
     exitMod(mod);
   });
 }
+
 function exitMod(mod) {
   mod.classList.remove("is-active");
   const modBody = modTemp.querySelector(`[data-type="mod-body"]`);
