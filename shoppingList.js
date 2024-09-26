@@ -1,83 +1,43 @@
-// Example input array of shopping list items
-
-// Function to check if an item with the same size and color already exists
-function addItem(shoppingList, newItem) {
-  // Check if an item with the same size and color exists
-  const existingItem = shoppingList.list.find(
-    (item) => item.size === newItem.size && item.color === newItem.color
-  );
-
-  if (existingItem) {
-    // If it exists, increase the quantity and price of the existing item
-    existingItem.quantity += newItem.quantity;
-    existingItem.price += newItem.price;
-    updateShoppingListDOMRow(existingItem.itemId, existingItem);
-    // console.log("Item exists. Updated quantity:", existingItem);
-  } else {
-    // Add the new item to the shopping list
-    shoppingList.list.push(newItem);
-    addToShoppingListDOM(newItem);
-    // console.log("New item added:", newItem);
-  }
-
-  // Call the update function to handle recalculations and DOM updates
-  update(shoppingList);
+// Function to handle adding an item to the shopping list
+function addItemToShoppingList(newItem, itemInstance) {
+  itemInstance.addItem(newItem);
 }
 
-// Helper function to calculate total price, total items, and update itemNum
-function update(shoppingList) {
-  // Calculate total price and item count
-  shoppingList.total.totalPrice = shoppingList.list.reduce(
-    (acc, item) => acc + item.price,
-    0
-  );
-  shoppingList.total.totalItemNum = shoppingList.list.reduce(
-    (acc, item) => acc + item.quantity,
-    0
-  );
-
-  // Call the placeholder function to update the DOM
-  updateShoppingListDOMTotal(shoppingList.total);
+// Function to update the shopping list totals
+function updateShoppingListTotals(itemInstance) {
+  itemInstance.updateShoppingListTotals();
 }
 
-// Function to remove an item by its itemNum and update
-function removeItemX(itemId) {
-  shoppingList.list = shoppingList.list.filter(
+// Function to remove an item by its itemId
+function removeItemFromShoppingList(itemId, itemInstance) {
+  const filteredList = itemInstance.shoppingList.list.filter(
     (item) => item.itemId !== itemId
   );
+  itemInstance.shoppingList.list = filteredList;
 
-  // Call update to reassign itemNum and recalculate totals
+  itemInstance.updateShoppingListTotals();
 
-  removeFromShoppingListDOM(itemId);
-  update();
-  console.log(`Item with itemId ${itemId} removed.`);
+  // Optionally remove the item from the DOM
+  removeFromShoppingListDOM(itemId); // This part remains the same
 }
 
-function removeItem(itemId) {
-  // Convert itemId to the appropriate type if necessary (e.g., number)
-  const id = Number(itemId); // Assuming itemId in shoppingList is a number
-
-  // Filter out the item with the given itemNum
-  shoppingList.list = shoppingList.list.filter((item) => item.itemId !== id);
-
-  // Call update to reassign itemNum and recalculate totals
-  removeFromShoppingListDOM(itemId); // Pass the raw itemId here since it's used for DOM
-  update();
-  console.log(`Item with itemId ${id} removed.`);
-}
-
-function createShoppingListTable(shoppingList) {
+// Function to create the shopping list table initially
+function createShoppingListTable(itemInstance) {
   const parent = document.querySelector(`[data-id="tbody"]`);
-  const row = createShoppingListRow(shoppingList.list[0]);
-  parent.appendChild(row);
-  update(shoppingList);
-  console.log(shoppingList.total);
 
-  updateShoppingListDOMTotal(shoppingList.total);
-  addEditListeners(row);
-  addDeleteListeners(row);
+  // Loop through each item in the list and append to the DOM
+  itemInstance.shoppingList.list.forEach((item) => {
+    const row = createShoppingListRow(item);
+    parent.appendChild(row);
+    addEditListeners(row); // Keep this to handle editing
+    addDeleteListeners(row, itemInstance); // Pass itemInstance to handle deletion logic
+  });
+
+  // Update the totals in the DOM
+  itemInstance.updateShoppingListTotals();
 }
 
+// Function to create a row in the shopping list table
 function createShoppingListRow(row) {
   const tbody = document.createElement("tbody");
   const raw = `<tr data-id="${row.itemId}" data-type="tr">
@@ -98,44 +58,35 @@ function createShoppingListRow(row) {
 
 // Function to add event listeners to all "edit" elements
 function addEditListeners(row) {
-  // Get all elements with data-id="edit"
   const element = row.querySelector('[data-id="edit"]');
-
-  // Add click event listener to each "edit" element
-
   element.addEventListener("click", function () {
-    // Call the editElement function with the clicked element's parent (tr)
-    editElement(row.dataset.id);
+    editElement(row.dataset.id); // Handle edit logic
   });
 }
 
-// Function to add event listeners to all "edit" elements
-function addDeleteListeners(row) {
-  // Get all elements with data-id="edit"
+// Function to add event listeners to all "delete" elements
+function addDeleteListeners(row, itemInstance) {
   const element = row.querySelector('[data-id="delete"]');
-
-  // Add click event listener to each "delete" element
   element.addEventListener("click", function () {
-    // Call the removeItem function with the clicked element's parent (tr)
-    removeItem(row.dataset.id);
+    removeItemFromShoppingList(row.dataset.id, itemInstance); // Call the new remove logic
   });
 }
 
 // Function that will be called when an "edit" element is clicked
 function editElement(parentElement) {
-  // Logic for editing the element
-  console.log("Editing element:", parentElement); // Just a placeholder
+  // Logic for editing the element (unchanged)
+  console.log("Editing element:", parentElement); // Placeholder
 }
 
+// Function to update the shopping list totals in the DOM
 function updateShoppingListDOMTotal(total) {
-  console.log(`${total.totalPrice}`);
-
   const totalPrice = document.querySelector(`[data-id="total-price"]`);
   const totalItemsNum = document.querySelector(`[data-id="total-items-num"]`);
   totalPrice.textContent = `${total.totalPrice}`;
   totalItemsNum.textContent = `${total.totalItemNum}`;
 }
 
+// Function to update a shopping list row in the DOM
 function updateShoppingListDOMRow(rowElementId, rowObject) {
   const rowElement = document.querySelector(`[data-id="tr_${rowElementId}"]`);
   const price = rowElement.querySelector(`[data-id="price"]`);
@@ -144,21 +95,23 @@ function updateShoppingListDOMRow(rowElementId, rowObject) {
   quantity.textContent = rowObject.quantity;
 }
 
+// Function to add a new row to the shopping list in the DOM
 function addToShoppingListDOM(row) {
   const parent = document.querySelector(`[data-id="tbody"]`);
-  const newrow = createShoppingListRow(row);
-  parent.appendChild(newrow);
-  addEditListeners(newrow);
-  addDeleteListeners(newrow);
-  update();
+  const newRow = createShoppingListRow(row);
+  parent.appendChild(newRow);
+  addEditListeners(newRow); // Keep the same event listeners for edit
+  addDeleteListeners(newRow); // Add event listeners for delete
 }
 
+// Function to remove an item from the shopping list DOM
 function removeFromShoppingListDOM(itemId) {
   const rowElement = document.querySelector(`[data-id="${itemId}"]`);
-  rowElement.remove();
+  if (rowElement) {
+    rowElement.remove();
+  }
 }
 
-// Example usage: Adding a new item
 const newItem = {
   price: 250,
   size: "3XL",
@@ -199,5 +152,9 @@ const newItemE = {
   itemId: 6,
   colorName: "خراوى",
 };
-
-addItem(shoppingList, newItem);
+// createShoppingListRow(item.shoppingList);
+// // createShoppingListTable(item);
+// updateShoppingListDOMRow(1, item.shoppingList);
+item.addItem(newItem);
+// item.addItem(newItemB);
+// item.addItem(newItemC);

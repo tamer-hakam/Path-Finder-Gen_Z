@@ -32,11 +32,6 @@ class Item {
       head: params.sizeTable.head || [],
       rows: [],
     };
-
-    // Initialize the shopping list during construction
-    this.shoppingList = this.createInitialShoppingList(
-      params.listOptions || {}
-    );
   }
 
   getSizeTable() {
@@ -97,78 +92,6 @@ class Item {
     if (color) {
       this.currentColor = color;
     }
-  }
-
-  // Method to initialize the shopping list
-
-  createInitialShoppingList(_listOptions) {
-    const shoppingList = {
-      list: [],
-      total: {
-        totalPrice: 0,
-        totalItemNum: 0,
-      },
-    };
-    // If initial options are provided, create a default list entry
-
-    if (_listOptions && Object.keys(_listOptions).length > 0) {
-      const listOptions = {
-        itemId: 1, // You can modify this based on unique ID logic
-        price: _listOptions.price || 0,
-        size: _listOptions.size || "--",
-        colorId: _listOptions.colorId || "",
-        quantity: _listOptions.quantity || 1,
-        colorName: _listOptions.colorName || "--",
-      };
-      shoppingList.list.push(listOptions);
-    }
-
-    return shoppingList;
-  }
-
-  addItem(newItem) {
-    // Check if an item with the same size and color exists
-    const existingItem = this.shoppingList.list.find(
-      (item) => item.size === newItem.size && item.colorId === newItem.colorId
-    );
-
-    if (existingItem) {
-      // If it exists, update quantity and price
-      existingItem.quantity += newItem.quantity;
-      existingItem.price += newItem.price;
-      // Update DOM row if needed
-      updateShoppingListDOMRow(existingItem.itemId, existingItem);
-    } else {
-      // Add the new item to the shopping list
-      this.shoppingList.list.push(newItem);
-      // Add to DOM if needed
-      addToShoppingListDOM(newItem);
-    }
-
-    // Update totals
-    this.updateShoppingListTotals();
-  }
-
-  updateShoppingListTotals() {
-    // Calculate total price and total items
-    this.shoppingList.total.totalPrice = this.shoppingList.list.reduce(
-      (acc, item) => acc + item.price,
-      0
-    );
-    this.shoppingList.total.totalItemNum = this.shoppingList.list.reduce(
-      (acc, item) => acc + item.quantity,
-      0
-    );
-
-    // Update DOM totals if needed
-    updateShoppingListDOMTotal(this.shoppingList.total);
-  }
-
-  resetList() {
-    // Reset the shopping list to its initial state
-    this.shoppingList = this.createInitialShoppingList({});
-    // Optionally update the DOM or perform other reset logic
-    updateShoppingListDOMTotal(this.shoppingList.total);
   }
 
   // Generic setter method
